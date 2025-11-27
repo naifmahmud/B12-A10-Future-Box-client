@@ -7,6 +7,7 @@ import Register from "../../Authentication/Register";
 import Addreview from "../../components/AddReview/Addreview";
 import MyReview from "../../components/MyReview/MyReview";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import Error404 from "../../Pages/404Error/Error404";
 
 export const router=createBrowserRouter([
     {path:'/',
@@ -39,6 +40,10 @@ export const router=createBrowserRouter([
                 element:<PrivateRoute>
                     <MyReview></MyReview>
                 </PrivateRoute>
+            },
+            {
+                path:'*',
+                Component:Error404
             }
         ]
     }
