@@ -5,9 +5,9 @@ import { AuthContext } from "../../Contexts/AuthContext/AuthContext";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
-    const [showPass, setShowPass] = useState(false);
-  
-  const { signInWithGoogle } = use(AuthContext);
+  const [showPass, setShowPass] = useState(false);
+
+  const { signInWithGoogle,signInWithEmail} = use(AuthContext);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -25,6 +25,25 @@ const Login = () => {
       });
   };
 
+  const signInUser=(e)=>{
+    e.preventDefault();
+
+    const email= e.target.email.value;
+    const password= e.target.password.value;
+
+    signInWithEmail(email,password)
+    .then(result=>{
+      console.log(result.user);
+      toast.success("Signed in Successful✅");
+      navigate(location.state || '/')
+      e.target.reset();
+    })
+    .catch(error=>{
+      toast.error(error.message);
+    })
+    
+  }
+
   return (
     <div className="hero min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse">
@@ -33,21 +52,34 @@ const Login = () => {
         </div>
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
           <div className="card-body bg-gray-400 rounded-2xl">
-            <form>
+            <form onSubmit={signInUser}>
               <fieldset className="fieldset">
                 <label className="label">Email</label>
-                <input type="email" className="input" placeholder="Email" />
+                <input
+                  type="email"
+                  className="input"
+                  name="email"
+                  placeholder="Email"
+                />
+
                 <label className="label">Password</label>
-                <div  className="relative">
-                                    <input
-                                  type={showPass?'text':'password'}
-                                  name="password"
-                                  className="input"
-                                  placeholder="Password"
-                                  required
-                                />
-                                <p onClick={()=>{setShowPass(!showPass)}} className="absolute right-2 top-4 ">{showPass?<FaEyeSlash></FaEyeSlash>:<FaEye></FaEye>}</p>
-                                </div>
+                <div className="relative ">
+                  <input
+                    type={showPass ? "text" : "password"}
+                    name="password"
+                    className="input"
+                    placeholder="Password"
+                    required
+                  />
+                  <span
+                    onClick={() => {
+                      setShowPass(!showPass);
+                    }}
+                    className="absolute right-6 top-4 "
+                  >
+                    {showPass ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}
+                  </span>
+                </div>
                 <div>
                   <a className="link link-hover">Forgot password?</a>
                 </div>

@@ -21,7 +21,7 @@ const Register = () => {
       .then((result) => {
         console.log(result.user);
         toast.success("Account Registered successfully");
-        navigate(location.state);
+        navigate('/');
       })
       .catch((error) => {
         console.log(error.message);
@@ -56,7 +56,7 @@ const Register = () => {
           displayName: name,
           photoURL: photoURL,
         });
-        toast.success("Account added successfully");
+        navigate('/')
       })
       .catch((error) => {
         toast.error(error.message);
@@ -111,7 +111,7 @@ const Register = () => {
                   placeholder="Password"
                   required
                 />
-                <p onClick={()=>{setShowPass(!showPass)}} className="absolute right-2 top-4 ">{showPass?<FaEyeSlash></FaEyeSlash>:<FaEye></FaEye>}</p>
+                <p onClick={()=>{setShowPass(!showPass)}} className="absolute right-6 top-4 ">{showPass?<FaEyeSlash></FaEyeSlash>:<FaEye></FaEye>}</p>
                 </div>
 
                 <label className="label">Confirm Password</label>
@@ -123,7 +123,7 @@ const Register = () => {
                   placeholder="Confirm Password"
                   required
                 />
-                <p onClick={()=>{setShowConfirmPass(!showConfirmPass)}} className="absolute right-2 top-4 ">{showConfirmPass?<FaEyeSlash></FaEyeSlash>:<FaEye />}</p>
+                <p onClick={()=>{setShowConfirmPass(!showConfirmPass)}} className="absolute right-6 top-4 ">{showConfirmPass?<FaEyeSlash></FaEyeSlash>:<FaEye />}</p>
                 </div>
 
                 <div>

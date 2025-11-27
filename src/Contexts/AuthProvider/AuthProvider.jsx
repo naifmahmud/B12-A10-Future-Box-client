@@ -28,7 +28,7 @@ const AuthProvider = ({children}) => {
         setLoading(true);
         return signOut(auth);
     }
-    console.log(user);
+    // console.log(user);
     
 
     useEffect(()=>{
