@@ -9,13 +9,13 @@ const Navbar = () => {
   const links = (
     <>
       <li className="text-[#245c5e]">
-        <NavLink className={({isActive})=>isActive?'logo-text':''} to="/">Home</NavLink>
+        <NavLink className={({isActive})=>isActive?'logo-text':'font-semibold'} to="/">Home</NavLink>
       </li>
       <li className="text-[#245c5e]">
-        <NavLink className={({isActive})=>isActive?'logo-text':''} to="/allReviews">All Review</NavLink>
+        <NavLink className={({isActive})=>isActive?'logo-text':'font-semibold'} to="/allReviews">All Review</NavLink>
       </li>
       <li className="text-[#245c5e]">
-        <NavLink className={({isActive})=>isActive?'logo-text':''} to="/register">Register</NavLink>
+        <NavLink className={({isActive})=>isActive?'logo-text':'font-semibold'} to="/register">Register</NavLink>
       </li>
     </>
   );
