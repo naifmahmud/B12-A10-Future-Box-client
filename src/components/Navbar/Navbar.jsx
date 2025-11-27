@@ -1,8 +1,12 @@
-import React from "react";
+import React, { use } from "react";
 import { NavLink } from "react-router";
+import { AuthContext } from "../../Contexts/AuthContext/AuthContext";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
-  const links = (
+  const {user,signOutUser}=use(AuthContext);
+
+   const links = (
             <>
               <li>
                 <NavLink to="/">Home</NavLink>
@@ -13,8 +17,19 @@ const Navbar = () => {
             </>
           );
 
+          const handleSignOut=()=>{
+            signOutUser()
+            .then(()=>{
+              toast.warning("User logged out!")
+            })
+            .catch(error=>{
+              toast.error(error.message)
+            })
+          }
+
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div>
+      <div className="navbar bg-base-100 shadow-sm">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -49,9 +64,24 @@ const Navbar = () => {
           {links}
         </ul>
       </div>
-      <div className="navbar-end">
-        <NavLink to="/login" className="btn">Login</NavLink>
+      <div className="navbar-end mr-10">
+          {
+            user?<div className="dropdown">
+          <div tabIndex={0} role="button" className="btn-ghost cursor-pointer">
+            <img src={user.photoURL} className="w-14 h-14 rounded-2xl" alt="" />
+          </div>
+          <ul
+            tabIndex="-1"
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+          >
+           <li><NavLink to="/addReview">Add Review</NavLink></li>
+           <li><NavLink to="/myReview">My Review</NavLink></li>
+           <li><button onClick={handleSignOut}>LogOut</button></li>
+          </ul>
+        </div>:<NavLink to="/login" className="btn">Login</NavLink>}
+        
       </div>
+    </div>
     </div>
   );
 };
