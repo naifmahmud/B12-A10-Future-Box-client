@@ -122,7 +122,7 @@ const Login = () => {
             </button>
             <div className="flex justify-around items-center">
               <p>New here please register</p>
-              <NavLink className="btn" to="/register">
+              <NavLink className="btn-1" to="/register">
                 Register
               </NavLink>
             </div>

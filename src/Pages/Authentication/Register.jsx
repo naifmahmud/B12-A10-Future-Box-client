@@ -168,7 +168,7 @@ const Register = () => {
             </button>
             <div className="flex justify-around items-center">
               <p>Have an account</p>
-              <NavLink className="btn" to="/login">
+              <NavLink className="btn-1" to="/login">
                 Login
               </NavLink>
             </div>

@@ -12,8 +12,9 @@ const Navbar = () => {
                 <NavLink to="/">Home</NavLink>
               </li>
               <li>
-                <NavLink to="/allReviews">All Reviews</NavLink>
+                <NavLink to="/allReviews">All Review</NavLink>
               </li>
+              <li><NavLink to="/register">Register</NavLink></li>
             </>
           );
 
@@ -28,8 +29,8 @@ const Navbar = () => {
           }
 
   return (
-    <div>
-      <div className="navbar bg-base-100 shadow-sm">
+    <div className="navbar-1">
+      <div className="navbar bg-green-50 ">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -54,7 +55,6 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
            {links}
-           <li><NavLink to="/register">Register</NavLink></li>
           </ul>
         </div>
         <a className="btn btn-ghost text-xl">Local Food Lovers Network</a>
@@ -78,7 +78,7 @@ const Navbar = () => {
            <li><NavLink to="/myReview">My Review</NavLink></li>
            <li><button onClick={handleSignOut}>LogOut</button></li>
           </ul>
-        </div>:<NavLink to="/login" className="btn">Login</NavLink>}
+        </div>:<NavLink to="/login" className="btn-1">Login</NavLink>}
         
       </div>
     </div>
