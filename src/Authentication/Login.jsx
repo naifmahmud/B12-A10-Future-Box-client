@@ -1,7 +1,7 @@
 import React, { use, useState } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router";
 import { toast } from "react-toastify";
-import { AuthContext } from "../../Contexts/AuthContext/AuthContext";
+import { AuthContext } from "../Contexts/AuthContext/AuthContext";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
@@ -17,11 +17,11 @@ const Login = () => {
     signInWithGoogle()
       .then((result) => {
         console.log(result.user);
-        toast.success("Account Registered successfully");
-        navigate(location.state);
+        // toast.success("Account Registered successfully");
+        navigate(location.state || '/');
       })
       .catch((error) => {
-        console.log(error.message);
+        toast.error(error.message);
       });
   };
 
@@ -34,7 +34,7 @@ const Login = () => {
     signInWithEmail(email,password)
     .then(result=>{
       console.log(result.user);
-      toast.success("Signed in Successful✅");
+      // toast.success("Signed in Successful✅");
       navigate(location.state || '/')
       e.target.reset();
     })

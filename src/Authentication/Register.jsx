@@ -1,6 +1,6 @@
 import React, { use, useState } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router";
-import { AuthContext } from "../../Contexts/AuthContext/AuthContext";
+import { AuthContext } from "../Contexts/AuthContext/AuthContext";
 import { toast } from "react-toastify";
 import { updateProfile } from "firebase/auth";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
