@@ -50,8 +50,8 @@ const Login = () => {
         <div className="text-center">
           <h1 className="text-5xl font-bold">Login now!</h1>
         </div>
-        <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-          <div className="card-body bg-gray-400 rounded-2xl">
+        <div className="card bg-[#ffe0d2] w-full max-w-sm shrink-0 shadow-2xl">
+          <div className="card-body  rounded-2xl">
             <form onSubmit={signInUser}>
               <fieldset className="fieldset">
                 <label className="label">Email</label>
