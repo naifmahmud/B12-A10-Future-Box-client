@@ -9,7 +9,7 @@ import MyReview from "../../components/MyReview/MyReview";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Error404 from "../../Pages/404Error/Error404";
 import ReviewDetails from "../../Pages/ReviewDetails/ReviewDetails";
-import Update from "../../Pages/UpdatePage/Update";
+import EditReview from "../../Pages/EditPage/EditReview";
 
 export const router=createBrowserRouter([
     {path:'/',
@@ -51,9 +51,10 @@ export const router=createBrowserRouter([
                 </PrivateRoute>
             },
             {
-                path:'update-review/:id',
+                path:'edit-review/:id',
+                loader:({params})=>fetch(`http://localhost:3000/allReviews/${params.id}`),
                 element: <PrivateRoute>
-                    <Update></Update>
+                    <EditReview></EditReview>
                 </PrivateRoute>
             },
             {

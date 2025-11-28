@@ -23,7 +23,7 @@ const Addreview = () => {
             description: e.target.description.value,
             reviewer_name:e.target.reviewer_name.value,
             user_email:user.email,
-            date: new Date(),
+            date: new Date().toLocaleString("en-US",{timeZone:"Asia/Dhaka"}),
             Favorites:0
         }
 

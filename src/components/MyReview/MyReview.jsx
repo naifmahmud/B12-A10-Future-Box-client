@@ -1,5 +1,6 @@
 import React, { use, useEffect, useState } from "react";
 import { AuthContext } from "../../Contexts/AuthContext/AuthContext";
+import { NavLink } from "react-router";
 
 const MyReview = () => {
   const { user, loading } = use(AuthContext);
@@ -9,7 +10,6 @@ const MyReview = () => {
     fetch(`http://localhost:3000/myReview?email=${user.email}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setMyReview(data);
       });
   }, [user]);
@@ -21,7 +21,7 @@ const MyReview = () => {
     <div>
         <div className="overflow-x-auto my-10 bg-[#8d8992] p-10 rounded-2xl">
             <h1 className="text-2xl font-bold text-[#085053] text-center">My Reviews</h1>
-          <table className="table rounded-2xl border-separate border-spacing-y-2">
+          <table className="table md:w-2xl lg:w-4xl rounded-2xl border-separate border-spacing-y-2">
             {/* head */}
             <thead>
               <tr>
@@ -53,7 +53,7 @@ const MyReview = () => {
                   </span>
                 </td>
                 <th>
-                  <button className="btn-1">Edit</button>
+                  <NavLink className="btn-1" to={`/edit-review/${review._id}`}>Edit</NavLink>
                 </th>
                 <th>
                     <button className="btn-1">Delete</button>

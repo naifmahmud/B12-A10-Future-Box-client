@@ -54,7 +54,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex="-1"
-              className="menu menu-sm dropdown-content bg-[#ffe0d2] rounded-box z-1 mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-[#ffe0d2] opacity-80 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
               {links}
             </ul>
@@ -69,9 +69,9 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <div className="navbar-end mr-10">
+        <div className="navbar-end mr-5">
           {user ? (
-            <div className="dropdown">
+            <div className="dropdown relative">
               <div
                 tabIndex={0}
                 role="button"
@@ -85,13 +85,13 @@ const Navbar = () => {
               </div>
               <ul
                 tabIndex="-1"
-                className="menu menu-sm dropdown-content bg-[#ffe0d2] rounded-box z-1 mt-3 w-52 p-2 shadow"
+                className="absolute right-2 menu menu-sm dropdown-content bg-[#ffe0d2] opacity-80 text-right rounded-box z-1 mt-3 w-52 p-2 shadow"
               >
                 <li className="text-[#245c5e] font-semibold">
-                  <NavLink to="/addReview">Add Review</NavLink>
+                  <NavLink className={({isActive})=>isActive?'logo-text':''} to="/addReview">Add Review</NavLink>
                 </li>
                 <li className="text-[#245c5e] font-semibold">
-                  <NavLink to="/myReview">My Review</NavLink>
+                  <NavLink className={({isActive})=>isActive?'logo-text':''} to="/myReview">My Review</NavLink>
                 </li>
                 <li className="text-[#245c5e] font-semibold">
                   <button onClick={handleSignOut}>LogOut</button>
