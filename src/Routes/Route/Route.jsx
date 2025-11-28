@@ -8,6 +8,7 @@ import Addreview from "../../components/AddReview/Addreview";
 import MyReview from "../../components/MyReview/MyReview";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Error404 from "../../Pages/404Error/Error404";
+import ReviewDetails from "../../Pages/ReviewDetails/ReviewDetails";
 
 export const router=createBrowserRouter([
     {path:'/',
@@ -21,6 +22,11 @@ export const router=createBrowserRouter([
                 path:'allReviews',
                 loader:()=>fetch('http://localhost:3000/allReviews'),
                 Component: AllReviews
+            },
+            {
+                path:'allReviews/:id',
+                loader:({params})=>fetch(`http://localhost:3000/allReviews/${params.id}`),
+                element: <ReviewDetails></ReviewDetails>
             },
             {
                 path:'login',

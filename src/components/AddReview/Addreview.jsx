@@ -6,16 +6,20 @@ const Addreview = () => {
 
     const {user}= use(AuthContext);
 
+    
+
+
 
     const handleAddReview=(e)=>{
         e.preventDefault();
+        const ratings=e.target.rating.value;
 
         const formData={
             food_name: e.target.foodName.value,
             photo: e.target.foodURL.value,
             restaurant_name: e.target.restaurantName.value,
             restaurant_location: e.target.location.value,
-            rating: e.target.rating.value,
+            rating: Number(ratings),
             description: e.target.description.value,
             reviewer_name:e.target.reviewer_name.value,
             user_email:user.email,

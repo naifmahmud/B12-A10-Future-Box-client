@@ -7,7 +7,6 @@ import ReviewCard from "../../components/ReviewCard/ReviewCard";
 
 const Home = () => {
   const topReview=useLoaderData();
-  console.log(topReview);
   
   return (
     <div>
@@ -47,7 +46,7 @@ const Home = () => {
      {/* top rated reviews */}
         <div className="mx-10 lg:mx-20 space-x-0">
           <div className='my-10 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
-          {topReview.map(review=><ReviewCard review={review}></ReviewCard>)}
+          {topReview.map(review=><ReviewCard key={review._id} review={review}></ReviewCard>)}
         </div>
 
         <div className="my-5 flex justify-center items-center">

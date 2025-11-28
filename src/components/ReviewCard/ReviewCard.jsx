@@ -1,9 +1,10 @@
 import React from "react";
 import { MdOutlineStarHalf } from "react-icons/md";
+import { NavLink } from "react-router";
 
 
 const ReviewCard = ({ review }) => {
-  console.log(review);
+
   const {
     food_name,
     photo,
@@ -11,6 +12,7 @@ const ReviewCard = ({ review }) => {
     restaurant_name,
     restaurant_location,
     rating,
+    _id
   } = review;
 
   return (
@@ -45,7 +47,7 @@ const ReviewCard = ({ review }) => {
           <h5 className="flex items-center text-base font-semibold rounded-2xl ">{rating}<span><MdOutlineStarHalf /></span></h5>
         </div>
         <div className="card-actions">
-          <button className="btn-1 w-full">View Details</button>
+          <NavLink to={`/allReviews/${_id}`} className="btn-1 w-full text-center">View Details</NavLink>
         </div>
       </div>
     </div>
