@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { use } from 'react';
 import { useLoaderData } from 'react-router';
 import ReviewCard from '../ReviewCard/ReviewCard';
+import { AuthContext } from '../../Contexts/AuthContext/AuthContext';
 
 const AllReviews = () => {
+
+    const {loading}=use(AuthContext);
 
     const allReview=useLoaderData();
     // console.log(allReview);
     
+    if(loading){
+        return <span className="skeleton skeleton-text">Wait a sec data loading...</span>
+    }
 
     return (
         <div className='my-10'>

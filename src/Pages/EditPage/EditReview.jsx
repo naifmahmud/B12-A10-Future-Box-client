@@ -36,6 +36,7 @@ const EditReview = () => {
           .then(res=> res.json())
           .then(data=> {
               console.log(data);
+              toast.success("Review Edited Successfully✅")
           })
           .catch(error=>{
               toast.error(error.message);
