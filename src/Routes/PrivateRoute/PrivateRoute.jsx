@@ -11,7 +11,7 @@ const PrivateRoute = ({children}) => {
 
 
     if(loading){
-        return <span className="skeleton skeleton-text">AI is thinking harder...</span>
+        return <span className="skeleton skeleton-text">Thanks for your patience.....</span>
     }
 
     if(user){

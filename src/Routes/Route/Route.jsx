@@ -18,6 +18,7 @@ export const router=createBrowserRouter([
             },
             {
                 path:'allReviews',
+                loader:()=>fetch('http://localhost:3000/allReviews'),
                 Component: AllReviews
             },
             {
