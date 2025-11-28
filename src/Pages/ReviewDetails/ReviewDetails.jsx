@@ -18,6 +18,7 @@ const ReviewDetails = () => {
 
   return (
     <div className="my-10 p-5">
+        <h1></h1>
       <div className="flex flex-col md:flex-row card card-side shadow-sm p-5 bg-[#e7dedb]">
         <figure>
           <img src={photo} className="md:w-2xl h-50 md:h-80 rounded-xl" alt="" />

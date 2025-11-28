@@ -9,6 +9,7 @@ import MyReview from "../../components/MyReview/MyReview";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Error404 from "../../Pages/404Error/Error404";
 import ReviewDetails from "../../Pages/ReviewDetails/ReviewDetails";
+import Update from "../../Pages/UpdatePage/Update";
 
 export const router=createBrowserRouter([
     {path:'/',
@@ -47,6 +48,12 @@ export const router=createBrowserRouter([
                 path:'myReview',
                 element:<PrivateRoute>
                     <MyReview></MyReview>
+                </PrivateRoute>
+            },
+            {
+                path:'update-review/:id',
+                element: <PrivateRoute>
+                    <Update></Update>
                 </PrivateRoute>
             },
             {
