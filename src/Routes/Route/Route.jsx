@@ -14,6 +14,7 @@ export const router=createBrowserRouter([
         Component:Root,
         children:[
             {index:true,
+                loader:()=>fetch('http://localhost:3000/topRating'),
                 Component:Home
             },
             {

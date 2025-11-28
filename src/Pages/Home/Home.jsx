@@ -2,8 +2,13 @@ import React from "react";
 import slider1 from "../../assets/slider1.png";
 import slider2 from "../../assets/slider2.png";
 import Marquee from "react-fast-marquee";
+import { useLoaderData } from "react-router";
+import ReviewCard from "../../components/ReviewCard/ReviewCard";
 
 const Home = () => {
+  const topReview=useLoaderData();
+  console.log(topReview);
+  
   return (
     <div>
       {/* slider */}
@@ -39,10 +44,16 @@ const Home = () => {
       </Marquee>
 
       {/* NewsLetter */}
-      <section>
+     
 
-      </section>
+        <div className="mx-20 space-x-0">
+          <div className='my-10 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
+          {topReview.map(review=><ReviewCard review={review}></ReviewCard>)}
+        </div>
+        </div>
 
+    
+      
       <section>
 
       </section>
