@@ -37,6 +37,15 @@ const Home = () => {
           </div>
         </section>
       </Marquee>
+
+      {/* NewsLetter */}
+      <section>
+
+      </section>
+
+      <section>
+
+      </section>
     </div>
   );
 };

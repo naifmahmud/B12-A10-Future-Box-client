@@ -127,9 +127,9 @@ const Register = () => {
                 </div>
 
                 <div>
-                  <a className="link link-hover">Forgot password?</a>
+                  <a className="label link link-hover">Forgot password?</a>
                 </div>
-                <button className="btn btn-neutral mt-4">Register</button>
+                <button className="btn-1 btn-neutral mt-4">Register</button>
               </fieldset>
             </form>
             {/* Google */}
@@ -167,7 +167,7 @@ const Register = () => {
               Login with Google
             </button>
             <div className="flex justify-around items-center">
-              <p>Have an account</p>
+              <p className="label font-bold">Have an account login!</p>
               <NavLink className="btn-1" to="/login">
                 Login
               </NavLink>

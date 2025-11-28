@@ -85,15 +85,15 @@ const Navbar = () => {
               </div>
               <ul
                 tabIndex="-1"
-                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+                className="menu menu-sm dropdown-content bg-[#ffe0d2] rounded-box z-1 mt-3 w-52 p-2 shadow"
               >
-                <li className="text-[#245c5e]">
+                <li className="text-[#245c5e] font-semibold">
                   <NavLink to="/addReview">Add Review</NavLink>
                 </li>
-                <li className="text-[#245c5e]">
+                <li className="text-[#245c5e] font-semibold">
                   <NavLink to="/myReview">My Review</NavLink>
                 </li>
-                <li className="text-[#245c5e]">
+                <li className="text-[#245c5e] font-semibold">
                   <button onClick={handleSignOut}>LogOut</button>
                 </li>
               </ul>
