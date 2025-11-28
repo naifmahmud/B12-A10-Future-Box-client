@@ -2,7 +2,7 @@ import React from "react";
 import slider1 from "../../assets/slider1.png";
 import slider2 from "../../assets/slider2.png";
 import Marquee from "react-fast-marquee";
-import { useLoaderData } from "react-router";
+import { NavLink, useLoaderData } from "react-router";
 import ReviewCard from "../../components/ReviewCard/ReviewCard";
 
 const Home = () => {
@@ -43,20 +43,20 @@ const Home = () => {
         </section>
       </Marquee>
 
-      {/* NewsLetter */}
      
-
-        <div className="mx-20 space-x-0">
+     {/* top rated reviews */}
+        <div className="mx-10 lg:mx-20 space-x-0">
           <div className='my-10 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
           {topReview.map(review=><ReviewCard review={review}></ReviewCard>)}
+        </div>
+
+        <div className="my-5 flex justify-center items-center">
+          <NavLink className="btn-1  " to="/allReviews">All Review</NavLink>
         </div>
         </div>
 
     
-      
-      <section>
 
-      </section>
     </div>
   );
 };

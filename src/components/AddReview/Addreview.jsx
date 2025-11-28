@@ -1,21 +1,46 @@
-import React from "react";
+import React, { use } from "react";
+import { AuthContext } from "../../Contexts/AuthContext/AuthContext";
+import { toast } from "react-toastify";
 
 const Addreview = () => {
+
+    const {user}= use(AuthContext);
 
 
     const handleAddReview=(e)=>{
         e.preventDefault();
 
-        const foodName= e.target.foodName.value;
-        const foodImage= e.target.foodURL.value;
-        const restaurantName= e.target.restaurantName.value;
-        const location= e.target.location.value;
-        const rating= e.target.rating.value;
-        const description= e.target.description.value;
+        const formData={
+            food_name: e.target.foodName.value,
+            photo: e.target.foodURL.value,
+            restaurant_name: e.target.restaurantName.value,
+            restaurant_location: e.target.location.value,
+            rating: e.target.rating.value,
+            description: e.target.description.value,
+            reviewer_name:e.target.reviewer_name.value,
+            user_email:user.email,
+            date: new Date(),
+            Favorites:0
+        }
 
-        console.log({foodName,foodImage,restaurantName,location,rating,description});
+        fetch('http://localhost:3000/allReviews',{
+            method:'POST',
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify(formData)
+        })
+        .then(res=> res.json())
+        .then(data=> {
+            console.log(data);
+        })
+        .catch(error=>{
+            toast.error(error.message);
+        })
+    
 
         e.target.reset();
+
         
     }
   return (
@@ -26,11 +51,14 @@ const Addreview = () => {
         </div>
         <form onSubmit={handleAddReview}>
           <fieldset className="fieldset">
+            <label className="label">Reviewer Name</label>
+            <input type="text" name="reviewer_name" className="input" placeholder="Reviewer Name" required />
+
             <label className="label">Food Name</label>
             <input type="text" name="foodName" className="input" placeholder="Food Name" required />
 
             <label className="label">Food Image</label>
-            <input type="text" name="foodURL" className="input" placeholder="Food Image" required />
+            <input type="text" name="foodURL" className="input" placeholder="https://exammple.jpg" required />
 
             <label className="label">Restaurant Name</label>
             <input
