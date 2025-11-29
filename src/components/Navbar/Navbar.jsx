@@ -91,6 +91,9 @@ const Navbar = () => {
                   <NavLink className={({isActive})=>isActive?'logo-text':''} to="/addReview">Add Review</NavLink>
                 </li>
                 <li className="text-[#245c5e] font-semibold">
+                  <NavLink className={({isActive})=>isActive?'logo-text':''} to="/favorites">My Favorites</NavLink>
+                </li>
+                <li className="text-[#245c5e] font-semibold">
                   <NavLink className={({isActive})=>isActive?'logo-text':''} to="/myReview">My Review</NavLink>
                 </li>
                 <li className="text-[#245c5e] font-semibold">

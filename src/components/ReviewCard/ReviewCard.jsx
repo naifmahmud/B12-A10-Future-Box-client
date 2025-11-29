@@ -1,9 +1,11 @@
-import React from "react";
+import React, { use } from "react";
 import { MdOutlineStarHalf } from "react-icons/md";
 import { NavLink } from "react-router";
-
+import { toast } from "react-toastify";
+import { AuthContext } from "../../Contexts/AuthContext/AuthContext";
 
 const ReviewCard = ({ review }) => {
+  const {user}=use(AuthContext);
 
   const {
     food_name,
@@ -12,16 +14,38 @@ const ReviewCard = ({ review }) => {
     restaurant_name,
     restaurant_location,
     rating,
-    _id
+    _id,
   } = review;
+
+  const handleFavorite=()=>{
+
+    fetch(`http://localhost:3000/favorites`,{
+      method:'POST',
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body: JSON.stringify({...review,fav_user_email:user.email})
+    })
+    .then(res=> res.json())
+    .then(data=> {
+      console.log(data);
+      toast.success('Added to Favorites')
+      
+    })
+    .catch(error=>{
+      toast.error(error.message)
+    })
+
+  }
 
   return (
     <div className="card bg-[#f8c0ab] w-96 shadow-2xl">
       <figure className="relative">
         <img src={photo} className="w-2xl h-50" />
-        <button className="absolute top-2 right-2 btn btn-circle">
+        <button  className="absolute top-2 right-2 btn btn-circle">
           <svg
             xmlns="http://www.w3.org/2000/svg"
+            onClick={handleFavorite}
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth="2.5"
@@ -39,15 +63,29 @@ const ReviewCard = ({ review }) => {
       <div className="card-body text-[#358386] font-bold">
         <h2 className="card-title text-2xl font-bold">{food_name}</h2>
         <div className="flex justify-between">
-          <h4 className="text-base font-semibold text-white bg-[#ed9172]  rounded-2xl px-2">{restaurant_name}</h4>
+          <h4 className="text-base font-semibold text-white bg-[#ed9172]  rounded-2xl px-2">
+            {restaurant_name}
+          </h4>
           <h4 className="text-base font-semibold">{restaurant_location}</h4>
         </div>
         <div className="flex justify-between">
-          <h5 className="text-base font-semibold text-white bg-[#ed9172]  rounded-2xl px-2">{reviewer_name}</h5>
-          <h5 className="flex items-center text-base font-semibold rounded-2xl ">{rating}<span><MdOutlineStarHalf /></span></h5>
+          <h5 className="text-base font-semibold text-white bg-[#ed9172]  rounded-2xl px-2">
+            {reviewer_name}
+          </h5>
+          <h5 className="flex items-center text-base font-semibold rounded-2xl ">
+            {rating}
+            <span>
+              <MdOutlineStarHalf />
+            </span>
+          </h5>
         </div>
         <div className="card-actions">
-          <NavLink to={`/allReviews/${_id}`} className="btn-1 w-full text-center">View Details</NavLink>
+          <NavLink
+            to={`/allReviews/${_id}`}
+            className="btn-1 w-full text-center"
+          >
+            View Details
+          </NavLink>
         </div>
       </div>
     </div>

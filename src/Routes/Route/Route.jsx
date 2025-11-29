@@ -10,10 +10,12 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Error404 from "../../Pages/404Error/Error404";
 import ReviewDetails from "../../Pages/ReviewDetails/ReviewDetails";
 import EditReview from "../../Pages/EditPage/EditReview";
+import MyFavorites from "../../Pages/Favorite/MyFavorites";
 
 export const router=createBrowserRouter([
     {path:'/',
         Component:Root,
+        errorElement:<Error404></Error404>,
         children:[
             {index:true,
                 loader:()=>fetch('http://localhost:3000/topRating'),
@@ -49,6 +51,12 @@ export const router=createBrowserRouter([
                 element:<PrivateRoute>
                     <MyReview></MyReview>
                 </PrivateRoute>
+            },
+            {
+                path:'/favorites',
+                element:<PrivateRoute>
+                    <MyFavorites></MyFavorites>
+                    </PrivateRoute>
             },
             {
                 path:'edit-review/:id',
