@@ -25,7 +25,7 @@ const AllReviews = () => {
     if(loading){
         return <div>loading....</div>
     }
-    fetch(`http://localhost:3000/search?search=${searchText}`)
+    fetch(`https://local-food-lover-server-3000.vercel.app/search?search=${searchText}`)
     .then(res=> res.json())
     .then(data=>{
         console.log(data);

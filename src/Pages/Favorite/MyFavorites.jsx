@@ -8,7 +8,7 @@ const MyFavorites = () => {
       const [myReview,setMyReview] = useState([]);
    
     useEffect(() => {
-        fetch(`http://localhost:3000/favorites?email=${user.email}`)
+        fetch(`https://local-food-lover-server-3000.vercel.app/favorites?email=${user.email}`)
           .then((res) => res.json())
           .then((data) => {
             setMyReview(data);

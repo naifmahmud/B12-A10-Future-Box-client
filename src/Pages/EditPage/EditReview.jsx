@@ -26,7 +26,7 @@ const EditReview = () => {
               date: new Date().toLocaleString("en-US",{timeZone:"Asia/Dhaka"}),
           }
   
-          fetch(`http://localhost:3000/allReviews/${editData._id}`,{
+          fetch(`https://local-food-lover-server-3000.vercel.app/allReviews/${editData._id}`,{
               method:'PATCH',
               headers:{
                   "Content-Type":"application/json"

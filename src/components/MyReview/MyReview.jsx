@@ -9,7 +9,7 @@ const MyReview = () => {
   const [myReview, setMyReview] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/myReview?email=${user.email}`)
+    fetch(`https://local-food-lover-server-3000.vercel.app/myReview?email=${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         setMyReview(data);
@@ -31,7 +31,7 @@ const MyReview = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/allReviews/${id}`, {
+        fetch(`https://local-food-lover-server-3000.vercel.app/allReviews/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

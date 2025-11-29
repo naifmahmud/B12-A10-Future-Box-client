@@ -27,7 +27,7 @@ const Addreview = () => {
             Favorites:0
         }
 
-        fetch('http://localhost:3000/allReviews',{
+        fetch('https://local-food-lover-server-3000.vercel.app/allReviews',{
             method:'POST',
             headers:{
                 "Content-Type":"application/json"

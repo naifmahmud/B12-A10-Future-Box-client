@@ -18,17 +18,17 @@ export const router=createBrowserRouter([
         errorElement:<Error404></Error404>,
         children:[
             {index:true,
-                loader:()=>fetch('http://localhost:3000/topRating'),
+                loader:()=>fetch('https://local-food-lover-server-3000.vercel.app/topRating'),
                 Component:Home
             },
             {
                 path:'allReviews',
-                loader:()=>fetch('http://localhost:3000/allReviews'),
+                loader:()=>fetch('https://local-food-lover-server-3000.vercel.app/allReviews'),
                 Component: AllReviews
             },
             {
                 path:'allReviews/:id',
-                loader:({params})=>fetch(`http://localhost:3000/allReviews/${params.id}`),
+                loader:({params})=>fetch(`https://local-food-lover-server-3000.vercel.app/allReviews/${params.id}`),
                 element: <ReviewDetails></ReviewDetails>
             },
             {
@@ -60,7 +60,7 @@ export const router=createBrowserRouter([
             },
             {
                 path:'edit-review/:id',
-                loader:({params})=>fetch(`http://localhost:3000/allReviews/${params.id}`),
+                loader:({params})=>fetch(`https://local-food-lover-server-3000.vercel.app/allReviews/${params.id}`),
                 element: <PrivateRoute>
                     <EditReview></EditReview>
                 </PrivateRoute>

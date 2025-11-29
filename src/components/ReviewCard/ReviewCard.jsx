@@ -19,7 +19,7 @@ const ReviewCard = ({ review }) => {
 
   const handleFavorite=()=>{
 
-    fetch(`http://localhost:3000/favorites`,{
+    fetch(`https://local-food-lover-server-3000.vercel.app/favorites`,{
       method:'POST',
       headers:{
         "Content-Type":"application/json"
