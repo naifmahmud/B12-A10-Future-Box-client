@@ -21,6 +21,7 @@ const MyFavorites = () => {
     
     return (
         <div className='my-10'>
+          <h1 className='text-2xl text-center my-5 font-bold text-[#358386]'>My Favorites Page</h1>
             <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                 {myReview.map(review=><ReviewCard key={review._id} review={review}></ReviewCard>)}
             </div>
