@@ -48,3 +48,35 @@
   text-shadow:2px 2px 4px rgb(215,87,62);
 }
 
+
+.searchBox {
+  display: flex;
+  max-width: 230px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  color: #358386;
+  background-color: #fce0d5;
+  border-radius: 50px;
+  position: relative;
+}
+
+.searchButton {
+  color: white;
+  position: absolute;
+  right: 1px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 0;
+  display: inline-block;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+}
+/*hover effect*/
+button:hover {
+  color: #aa5e5e;
+  transform: translateY(-3px);
+}
+
+
+
