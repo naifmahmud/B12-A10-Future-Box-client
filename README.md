@@ -7,10 +7,17 @@ live_SITE: https://local-food-lover-network-3000.netlify.app/
 
 #Featues of this site:
 **Anyone can aee the reviews of the food**
+
 **Anyone can register in this site with their emil and password also with google account**
+
 **Users can login**
+
 **All review data will save into mongodb database collection**
+
 **login user can add review **
+
 **login user can edit and delete their review**
+
 **Without logging if any user click on add review button it will navigate them to login page**
+
 **Clicking on the heart/favorites button save the review data into favorites data collection in mongodb only login user can see their favorites reviews**
